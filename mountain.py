@@ -213,7 +213,7 @@ class Displaypad(EventEmitter):
     def _listen_to_device(self):
         while True:
             try:
-                data = self.device.read(64, 100)  # timeout als positional Argument
+                data = self.device.read(64, 100)
                 if data:
                     self._process_data_event(bytes(data))
             except Exception as exception:
