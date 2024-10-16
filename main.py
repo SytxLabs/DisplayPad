@@ -1,5 +1,9 @@
-from mountain import Displaypad, ICON_SIZE
 import time
+
+from PIL import Image
+
+from mountain import Displaypad, ICON_SIZE
+
 
 def main():
     try:
@@ -22,15 +26,8 @@ def main():
         pad.fill_color(0, 255, 0, 0)
         pad.fill_color(1, 0, 255, 0)
         pad.fill_color(2, 0, 0, 255)
-        pad.fill_color(3, 0, 0, 255)
-        pad.fill_color(4, 0, 0, 255)
-        pad.fill_color(5, 0, 0, 255)
-        pad.fill_color(6, 0, 0, 255)
-        pad.fill_color(7, 0, 0, 255)
-        pad.fill_color(8, 0, 0, 255)
-        pad.fill_color(9, 0, 0, 255)
-        pad.fill_color(10, 0, 0, 255)
-        pad.fill_color(11, 0, 0, 255)
+
+        pad.fill_image(3, pad.image_buffer('img/sytx.png'))
 
         image = bytearray(ICON_SIZE * ICON_SIZE * 3)
         for i in range(ICON_SIZE * ICON_SIZE):

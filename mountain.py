@@ -1,6 +1,7 @@
 import threading
 
 import hid
+from PIL import Image
 from pyee import EventEmitter
 
 NUM_KEYS = 12
@@ -215,8 +216,8 @@ class Displaypad(EventEmitter):
                 data = self.device.read(64, 100)  # timeout als positional Argument
                 if data:
                     self._process_data_event(bytes(data))
-            except Exception as e:
-                self.emit('error', e)
+            except Exception as exception:
+                self.emit('error', exception)
                 break
 
     def reset(self):
@@ -236,3 +237,10 @@ class Displaypad(EventEmitter):
         data = bytearray(IMG_MSG)
         data[5] = key_index
         self.device.write(data)
+
+    @staticmethod
+    def image_buffer(image_path):
+        with Image.open(image_path) as img:
+            img = img.resize((ICON_SIZE, ICON_SIZE))
+            img = img.convert("RGB")
+            return bytearray(img.tobytes())
