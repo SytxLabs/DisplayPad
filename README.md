@@ -3,7 +3,7 @@
 ```python
 import time
 
-from Displaypad import Displaypad
+from DisplayPad import DisplayPad
 
 def main():
     pad = Displaypad()
