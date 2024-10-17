@@ -1,5 +1,5 @@
 [project]
-name = "DisplayPad.py"
+name = "DisplayPad"
 version = "1.0.1"
 authors = [
   { name="Sytxlabs", email="info@sytxlabs.eu" },
