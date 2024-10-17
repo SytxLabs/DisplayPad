@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='DisplayPad.py',
@@ -7,5 +7,6 @@ setup(
     author_email='info@sytxlabs.eu',
     url='https://sytxlabs.eu',
     description='A simple library to for the Mountain DisplayPad.',
-    license="MIT license"
+    license="MIT license",
+    packages=find_packages(),
 )
