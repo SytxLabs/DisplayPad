@@ -8,6 +8,6 @@ description = "A simple library to for the Mountain DisplayPad"
 readme = "README.md"
 requires-python = ">=3.8"
 classifiers = []
-
+requires = ["setuptools==75.2.0"]
 [project.urls]
 Homepage = "https://sytxlabs.eu"
