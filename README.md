@@ -1,7 +1,9 @@
+# Usage
+
+```python
 import time
 
-from mountain import Displaypad, ICON_SIZE
-
+from Displaypad import Displaypad
 
 def main():
     pad = Displaypad()
@@ -20,8 +22,6 @@ def main():
     pad.fill_color(1, 0, 255, 0)
     pad.fill_color(2, 0, 0, 255)
 
-    pad.fill_image(3, pad.image_buffer('img/sytx.png'))
-
     image = bytearray(ICON_SIZE * ICON_SIZE * 3)
     for i in range(ICON_SIZE * ICON_SIZE):
         image[i * 3] = 0xff
@@ -33,3 +33,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+```

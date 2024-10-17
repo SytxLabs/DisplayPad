@@ -1,0 +1,13 @@
+[project]
+name = "DisplayPad.py"
+version = "1.0.0"
+authors = [
+  { name="Sytxlabs", email="info@sytxlabs.eu" },
+]
+description = "A simple library to for the Mountain DisplayPad"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = []
+
+[project.urls]
+Homepage = "https://sytxlabs.eu"
