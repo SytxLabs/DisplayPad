@@ -6,7 +6,7 @@ This library allows you to customize your own Mountain DisplayPad by assigning e
 ```python
 import time
 
-from DisplayPad import DisplayPad
+from displaypad import DisplayPad
 
 
 def main():

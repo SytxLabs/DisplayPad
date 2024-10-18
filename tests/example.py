@@ -1,6 +1,6 @@
 import time
 
-from DisplayPad import DisplayPad
+from displaypad import DisplayPad
 
 
 def main():
@@ -13,7 +13,7 @@ def main():
     @pad.on('up')
     def on_key_down(key_index):
         print(f"Key {key_index} has been released.")
-        
+
     @pad.on('error')
     def on_error(error):
         print(f"Error: {error}")
