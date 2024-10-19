@@ -1,6 +1,7 @@
 import threading
 
 import hid
+from PIL import Image
 from pyee import EventEmitter
 
 
@@ -153,20 +154,20 @@ class DisplayPad(EventEmitter):
     def _process_device_event(self, data):
         if data[0] == 0x01:
             # Row 1
-            self._handle_key_press(1, (data[42] & 0x02) != 0)
-            self._handle_key_press(2, (data[42] & 0x04) != 0)
-            self._handle_key_press(3, (data[42] & 0x08) != 0)
-            self._handle_key_press(4, (data[42] & 0x10) != 0)
-            self._handle_key_press(5, (data[42] & 0x20) != 0)
-            self._handle_key_press(6, (data[42] & 0x40) != 0)
+            self._handle_key_press(0, (data[42] & 0x02) != 0)
+            self._handle_key_press(1, (data[42] & 0x04) != 0)
+            self._handle_key_press(2, (data[42] & 0x08) != 0)
+            self._handle_key_press(3, (data[42] & 0x10) != 0)
+            self._handle_key_press(4, (data[42] & 0x20) != 0)
+            self._handle_key_press(5, (data[42] & 0x40) != 0)
 
             # Row 2
-            self._handle_key_press(7, (data[42] & 0x80) != 0)
-            self._handle_key_press(8, (data[47] & 0x01) != 0)
-            self._handle_key_press(9, (data[47] & 0x02) != 0)
-            self._handle_key_press(10, (data[47] & 0x04) != 0)
-            self._handle_key_press(11, (data[47] & 0x08) != 0)
-            self._handle_key_press(12, (data[47] & 0x10) != 0)
+            self._handle_key_press(6, (data[42] & 0x80) != 0)
+            self._handle_key_press(7, (data[47] & 0x01) != 0)
+            self._handle_key_press(8, (data[47] & 0x02) != 0)
+            self._handle_key_press(9, (data[47] & 0x04) != 0)
+            self._handle_key_press(10, (data[47] & 0x08) != 0)
+            self._handle_key_press(11, (data[47] & 0x10) != 0)
 
         elif data[0] == 0x11:
             self.initializing = False
@@ -219,7 +220,8 @@ class DisplayPad(EventEmitter):
         data[5] = key_index
         self.device.write(data)
 
-    def get_image_buffer(self, img):
-        img = img.resize((self.ICON_SIZE, self.ICON_SIZE))
-        img = img.convert("RGB")
-        return bytearray(img.tobytes())
+    def get_image_buffer(self, image_path):
+        with Image.open(image_path) as img:
+            img = img.resize((self.ICON_SIZE, self.ICON_SIZE))
+            img = img.convert("RGB")
+            return bytearray(img.tobytes())

@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='DisplayPad',
-    version='1.0.2',
+    version='1.0.3',
     author='Sytxlabs',
     author_email='info@sytxlabs.eu',
     url='https://sytxlabs.eu',

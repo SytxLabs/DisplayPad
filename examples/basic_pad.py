@@ -1,9 +1,3 @@
-# DisplayPad
-This library allows you to customize your own Mountain DisplayPad by assigning each button its own custom function, image or color.
-
-# Example
-
-```python
 import asyncio
 
 from displaypad import DisplayPad
@@ -43,4 +37,3 @@ async def main():
 if __name__ == "__main__":
     # Run the main function
     asyncio.run(main())
-```
